@@ -6,7 +6,6 @@ void printWorld();
 
 int main() {
     printHello();
-    printf(" ");
     printWorld();
     return 0;
 }
