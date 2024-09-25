@@ -8,10 +8,10 @@ int main(){
     x = 0;
     y = 1;
     char expression = '/';
-    min = (x<y) ? x : y;
+    min = (x<y) ? x : y; // x smaller than y ? if true retur x : if false return y
     float value = (float)b/5;
     printf("%d\n", min);
-    switch (expression){
+    switch (expression){ // switch statement expression can be int or char
         case '+':
             printf("%d\n", x + y);
             break;
