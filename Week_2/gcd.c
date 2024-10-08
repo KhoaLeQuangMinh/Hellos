@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-
+// Function to find the GCD of two numbers
 int gcd(int a, int b){
     if(a == 0){
         return b;
