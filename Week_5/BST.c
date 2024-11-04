@@ -45,6 +45,7 @@ struct Node * InsertToTree(struct Node * root, int data){
     return root;
 }
 
+
 void freeMemory(struct Node * root)
 {
     if(root == NULL){
@@ -79,8 +80,6 @@ int main()
     InsertToTree(root, 30);
     InsertToTree(root, 20);
     InsertToTree(root, 40);
-
-
     inorder(root);
 
     freeMemory(root);
