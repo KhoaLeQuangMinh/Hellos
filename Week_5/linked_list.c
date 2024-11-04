@@ -25,13 +25,13 @@ int lenNode(struct Node** head){
     return count;
 }
 void accessElement(struct Node** head, int position){
-    if (position > lenNode(&*head) -1){
+    if (position >= lenNode(&*head)){
         printf("Index out of range");
         return;
     }
     int count = 0;
     struct Node* temp = *head;
-    while (count <= position){
+    while (count < position){
         if (count == position){
             printf("%d\n", temp -> data);
             return;
@@ -39,6 +39,19 @@ void accessElement(struct Node** head, int position){
         count += 1;
         temp = temp -> next;
     }
+}
+int* getData(struct Node* head, int* size){
+    int* out = NULL;
+    int count = 0;
+    struct Node* temp = head;
+    while (temp != NULL){
+        count ++;
+        out = realloc(out, count * sizeof(int));
+        out[count-1] = temp->data;
+        temp = temp -> next;
+    }
+    *size = count;
+    return out; 
 }
 void insertAtEnd(struct Node** head, int data){
     struct Node* newNode = createNode(data);
@@ -54,28 +67,37 @@ void insertAtEnd(struct Node** head, int data){
 }
 
 void deleteElement(struct Node** head, int position){
-    if (position > lenNode(&*head) -1){
-        printf("Index out of range");
+    
+    struct Node* temp = *head;
+    if (position == 0) {
+        *head = temp->next;
+        free(temp);
         return;
     }
     int count = 0;
-    struct Node* temp = *head;
-    while (count <= position){
-        if (count == position-1){
-            struct Node* deleteNode = temp -> next;
-            temp -> next = deleteNode -> next;
-            free(deleteNode);
-            return;
-        }
-        count += 1;
+    while (temp != NULL && count < position - 1){
         temp = temp -> next;
+        count++;
     }
+    
+    if (temp == NULL || temp -> next == NULL){
+        printf("Index out of range");
+        return;
+    }
+    struct Node* deleteNode = temp -> next;
+    temp -> next = deleteNode -> next;
+    free(deleteNode);
 }
 int main(){
     struct Node *head = NULL;
-    insertAtEnd(&head, 1);
-    insertAtEnd(&head, 2);
-    insertAtEnd(&head, 3);
+    insertAtEnd(&head, 10);
+    insertAtEnd(&head, 20);
+    insertAtEnd(&head, 30);
+    int size = 0;
+    int* out = getData(head, &size);
+    for (int i = 0; i < size; i++){
+        printf("Cai nay la Data: %d \n", out[i]);
+    }
     struct Node* temp = head;
     while (temp != NULL){
             printf("%d\n",temp->data);
@@ -89,6 +111,8 @@ int main(){
     }
     printf("%d\n", lenNode(&head));
     accessElement(&head, 1);
+    
+    free(out);
     temp = head;
     while(temp != NULL){
         struct Node* deleteNode = temp;
