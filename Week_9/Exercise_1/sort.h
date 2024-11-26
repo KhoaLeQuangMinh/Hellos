@@ -1,6 +1,6 @@
 // #include "compare_func.h"
 
-// #define DEBUG
+#define DEBUG
 
 #ifdef DEBUG
 extern int swap_counter;

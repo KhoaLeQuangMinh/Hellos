@@ -3,8 +3,8 @@
 #include "compare_func.h"
 
 // COMPILE
-// gcc main.c -o main.o
-// gcc sort.c -o sort.o
+// gcc -c main.c -o main.o
+// gcc -c sort.c -o sort.o
 // gcc main.o sort.o -o main
 
 int main()

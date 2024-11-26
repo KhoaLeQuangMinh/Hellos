@@ -2,7 +2,7 @@
 // #include "compare_func.h"
 // initialization of global variable
 #ifdef DEBUG
-int swap_counter = 0;
+    int swap_counter = 0;
 #endif 
 
 
