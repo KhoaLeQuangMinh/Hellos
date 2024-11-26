@@ -3,6 +3,9 @@ extern int greater(int a, int b);
 extern int less(int a, int b);
 extern void bubble_sort(int* arr, int N, int(*func)(int, int));
 
+// COMPILE 
+// gcc -c -fPIC sort_lib.c -o sort_lib.o
+// gcc sort_lib.o -shared -o sort_lib.so
 // exchange values of the pointers
 void swap(int* a, int* b)
 {

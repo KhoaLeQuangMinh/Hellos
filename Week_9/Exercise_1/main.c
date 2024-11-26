@@ -2,6 +2,11 @@
 #include "sort.h"
 #include "compare_func.h"
 
+// COMPILE
+// gcc main.c -o main.o
+// gcc sort.c -o sort.o
+// gcc main.o sort.o -o main
+
 int main()
 {
     int N = 5;

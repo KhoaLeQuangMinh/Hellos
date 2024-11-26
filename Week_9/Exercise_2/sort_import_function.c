@@ -5,6 +5,9 @@
 void* handle = NULL;
 #define GetProcAddress dlsym
 
+// COMPLILE
+// gcc -DLESS sort_import_function.c -o main
+// gcc sort_import_function.c -o main
 // declare function pointers
 
 int (*greater) (int, int);
